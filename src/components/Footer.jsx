@@ -1,13 +1,13 @@
 import { ArrowUp } from 'lucide-react';
 import React from 'react';
-import { navLinks, profile } from '../data/portfolio.js';
+import { profile } from '../data/portfolio.js';
 
 export default function Footer() {
   return (
     <footer className="relative z-10 border-t border-white/10 py-10 light:border-slate-200">
-      <div className="section-shell grid gap-8 lg:grid-cols-[1fr_auto_1fr] lg:items-center">
+      <div className="section-shell flex flex-col items-center gap-6 text-center">
         <div>
-          <a href="#home" className="inline-flex items-center gap-3">
+          <a href="#home" className="inline-flex items-center justify-center gap-3">
             <span className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-primary via-secondary to-accent text-base font-black text-white">
               {profile.initials}
             </span>
@@ -17,19 +17,11 @@ export default function Footer() {
             </span>
           </a>
           <p className="mt-4 text-sm text-slate-400 light:text-slate-600">
-            Copyright © {new Date().getFullYear()} {profile.name}. All rights reserved.
+            Copyright &copy; {new Date().getFullYear()} {profile.name}. All rights reserved.
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-start gap-2 lg:justify-center">
-          {navLinks.map((link) => (
-            <a key={link.href} href={link.href} className="rounded-full px-3 py-2 text-sm font-semibold text-slate-400 transition hover:bg-white/10 hover:text-white light:text-slate-600 light:hover:bg-slate-900/5 light:hover:text-slate-950">
-              {link.label}
-            </a>
-          ))}
-        </div>
-
-        <div className="flex items-center gap-3 lg:justify-end">
+        <div className="flex items-center justify-center gap-3">
           {profile.socials.map((social) => {
             const Icon = social.icon;
             return (
